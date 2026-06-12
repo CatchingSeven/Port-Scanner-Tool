@@ -9,10 +9,10 @@ import time
 
 
 
-def scanner(ip):
+def scanner(ip, port_count):
 
     results = []
-    for i in range(1000):
+    for i in range(port_count):
        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
        s.settimeout(0.5)
 
@@ -23,7 +23,7 @@ def scanner(ip):
            results.append({"port": i, "status": "closed"})
        s.close()
        if i % 10 == 0:
-           print("Progess: " + str((i/1000)*100) + "% done")
+           print("Progess: " + str((i/port_count)*100) + "% done")
 
 
 

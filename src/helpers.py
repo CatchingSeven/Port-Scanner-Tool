@@ -12,3 +12,11 @@ def is_valid_ip(ip_string):
 
 
 
+def print_results(results):
+    for i in range(len(results)):
+        if results[i]["status"] == "open":
+            print("Port: " + str(results[i]["port"]) + " Status: " + results[i]["status"])
+
+
+
+
