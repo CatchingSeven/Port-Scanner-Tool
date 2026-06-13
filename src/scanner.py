@@ -8,7 +8,7 @@ import time
 
 
 
-
+#default count for ports so error isnt thrown if the user doesnt put in an amount of ports
 def scanner(ip, port_count):
 
     results = []
@@ -22,7 +22,7 @@ def scanner(ip, port_count):
        else:
            results.append({"port": i, "status": "closed"})
        s.close()
-       if i % 10 == 0:
+       if i % 3 == 0:
            print("Progess: " + str((i/port_count)*100) + "% done")
 
 
