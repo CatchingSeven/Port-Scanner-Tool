@@ -8,11 +8,11 @@ import time
 
 
 
-
-def scanner(ip):
+#default count for ports so error isnt thrown if the user doesnt put in an amount of ports
+def scanner(ip, port_count):
 
     results = []
-    for i in range(1000):
+    for i in range(port_count):
        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
        s.settimeout(0.5)
 
@@ -22,8 +22,8 @@ def scanner(ip):
        else:
            results.append({"port": i, "status": "closed"})
        s.close()
-       if i % 10 == 0:
-           print("Progess: " + str((i/1000)*100) + "% done")
+       if i % 3 == 0:
+           print("Progess: " + str((i/port_count)*100) + "% done")
 
 
 
